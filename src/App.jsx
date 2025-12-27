@@ -15,7 +15,7 @@ function App() {
       {/* Content */}
       <div className="z-10 w-full max-w-md">
         <h1 className="text-4xl font-bold text-center mb-8 text-transparent bg-clip-text bg-gradient-to-r from-moto-primary to-moto-secondary">
-          MotoPass
+          Random Password Generator
         </h1>
         <PasswordGenerator />
       </div>
