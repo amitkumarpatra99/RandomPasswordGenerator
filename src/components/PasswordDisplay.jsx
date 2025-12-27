@@ -16,7 +16,7 @@ const PasswordDisplay = ({ password, onGenerate }) => {
     return (
         <div className="glass-input rounded-xl p-4 mb-6 flex items-center justify-between group relative overflow-hidden">
             <div className="flex-1 overflow-x-auto scrollbar-hide mr-4">
-                <p className={`text-2xl font-mono tracking-wider ${password ? 'text-white' : 'text-gray-500'}`}>
+                <p className={`text-xl sm:text-2xl font-mono tracking-wider ${password ? 'text-white' : 'text-gray-500'}`}>
                     {password || 'CLICK GENERATE'}
                 </p>
             </div>

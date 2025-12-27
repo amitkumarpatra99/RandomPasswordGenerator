@@ -14,7 +14,7 @@ function App() {
 
       {/* Content */}
       <div className="z-10 w-full max-w-md">
-        <h1 className="text-4xl font-bold text-center mb-8 text-transparent bg-clip-text bg-gradient-to-r from-moto-primary to-moto-secondary">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 sm:mb-8 text-transparent bg-clip-text bg-gradient-to-r from-moto-primary to-moto-secondary">
           Random Password Generator
         </h1>
         <PasswordGenerator />

@@ -47,7 +47,7 @@ const PasswordGenerator = () => {
     };
 
     return (
-        <div className="glass p-8 rounded-3xl w-full max-w-md mx-auto shadow-2xl backdrop-blur-xl border border-white/10 relative z-10">
+        <div className="glass p-5 sm:p-8 rounded-3xl w-full max-w-md mx-auto shadow-2xl backdrop-blur-xl border border-white/10 relative z-10 transition-all">
             <PasswordDisplay password={password} onGenerate={handleGenerate} />
 
             {/* Controls */}
@@ -56,7 +56,7 @@ const PasswordGenerator = () => {
                 {/* Length Slider */}
                 <div>
                     <div className="flex justify-between items-center mb-2">
-                        <label className="text-gray-300 font-medium">Character Length</label>
+                        <label className="text-gray-300 font-medium text-sm sm:text-base">Character Length</label>
                         <span className="text-2xl font-bold text-moto-primary">{length}</span>
                     </div>
                     <input
@@ -70,14 +70,14 @@ const PasswordGenerator = () => {
                 </div>
 
                 {/* Checkboxes */}
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {[
                         { id: 'upper', label: 'Uppercase (A-Z)' },
                         { id: 'lower', label: 'Lowercase (a-z)' },
                         { id: 'number', label: 'Numbers (0-9)' },
                         { id: 'symbol', label: 'Symbols (!@#)' },
                     ].map(({ id, label }) => (
-                        <div key={id} className="flex items-center space-x-3 cursor-pointer" onClick={() => toggleOption(id)}>
+                        <div key={id} className="flex items-center space-x-3 cursor-pointer p-2 rounded-lg hover:bg-white/5 transition-colors" onClick={() => toggleOption(id)}>
                             <div className={`w-5 h-5 rounded border flex items-center justify-center transition-all ${options[id] ? 'bg-moto-primary border-moto-primary' : 'border-gray-500 bg-transparent'}`}>
                                 {options[id] && <svg className="w-3.5 h-3.5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg>}
                             </div>
