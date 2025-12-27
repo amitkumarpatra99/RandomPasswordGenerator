@@ -1,0 +1,33 @@
+import React from 'react';
+import PasswordGenerator from './components/PasswordGenerator';
+import { Toaster } from 'react-hot-toast';
+
+function App() {
+  return (
+    <div className="relative min-h-screen w-full bg-moto-dark flex items-center justify-center p-4 overflow-hidden">
+      {/* Animated Background Blobs */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
+        <div className="absolute top-10 left-10 w-72 h-72 bg-moto-purple opacity-30 rounded-full blur-3xl animate-blob"></div>
+        <div className="absolute bottom-10 right-10 w-80 h-80 bg-moto-primary opacity-20 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-600 opacity-20 rounded-full blur-3xl animate-blob animation-delay-4000"></div>
+      </div>
+
+      {/* Content */}
+      <div className="z-10 w-full max-w-md">
+        <h1 className="text-4xl font-bold text-center mb-8 text-transparent bg-clip-text bg-gradient-to-r from-moto-primary to-moto-secondary">
+          MotoPass
+        </h1>
+        <PasswordGenerator />
+      </div>
+
+      <Toaster position="bottom-center" toastOptions={{
+        style: {
+          background: '#18181b',
+          color: '#fff',
+        },
+      }} />
+    </div>
+  );
+}
+
+export default App;
