@@ -1,10 +1,15 @@
 
-export const generatePassword = (length, { upper, lower, number, symbol }) => {
+export const generatePassword = (length, { upper, lower, number, symbol, excludeAmbiguous }) => {
     let charSet = '';
     if (lower) charSet += 'abcdefghijklmnopqrstuvwxyz';
     if (upper) charSet += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     if (number) charSet += '0123456789';
     if (symbol) charSet += '!@#$%^&*()_+~`|}{[]:;?><,./-=';
+
+    if (excludeAmbiguous) {
+        // Exclude: I, l, 1, O, 0
+        charSet = charSet.replace(/[Il1O0]/g, '');
+    }
 
     if (!charSet) return '';
 

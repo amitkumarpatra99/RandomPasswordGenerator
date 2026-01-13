@@ -11,7 +11,8 @@ const PasswordGenerator = () => {
         upper: true,
         lower: true,
         number: true,
-        symbol: true
+        symbol: true,
+        excludeAmbiguous: false
     });
     const [password, setPassword] = useState('');
     const [strength, setStrength] = useState(0);
@@ -30,10 +31,24 @@ const PasswordGenerator = () => {
         }
     };
 
-    // Generate on mount
+    // Load history from localStorage on mount
     useEffect(() => {
-        handleGenerate();
+        const savedHistory = localStorage.getItem('passwordHistory');
+        if (savedHistory) {
+            setHistory(JSON.parse(savedHistory));
+        }
+        handleGenerate(); // Initial generate
     }, []);
+
+    // Save history to localStorage whenever it changes
+    useEffect(() => {
+        localStorage.setItem('passwordHistory', JSON.stringify(history));
+    }, [history]);
+
+    const clearHistory = () => {
+        setHistory([]);
+        localStorage.removeItem('passwordHistory');
+    };
 
     const toggleOption = (key) => {
         setOptions(prev => {
@@ -76,8 +91,9 @@ const PasswordGenerator = () => {
                         { id: 'lower', label: 'Lowercase (a-z)' },
                         { id: 'number', label: 'Numbers (0-9)' },
                         { id: 'symbol', label: 'Symbols (!@#)' },
+                        { id: 'excludeAmbiguous', label: 'No Ambiguous (O,0,l,I)' },
                     ].map(({ id, label }) => (
-                        <div key={id} className="flex items-center space-x-3 cursor-pointer p-2 rounded-lg hover:bg-white/5 transition-colors" onClick={() => toggleOption(id)}>
+                        <div key={id} className={`flex items-center space-x-3 cursor-pointer p-2 rounded-lg hover:bg-white/5 transition-colors ${id === 'excludeAmbiguous' ? 'sm:col-span-2' : ''}`} onClick={() => toggleOption(id)}>
                             <div className={`w-5 h-5 rounded border flex items-center justify-center transition-all ${options[id] ? 'bg-moto-primary border-moto-primary' : 'border-gray-500 bg-transparent'}`}>
                                 {options[id] && <svg className="w-3.5 h-3.5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg>}
                             </div>
@@ -98,10 +114,14 @@ const PasswordGenerator = () => {
                 </button>
             </div>
 
-            <PasswordHistory history={history} onSelect={(pass) => {
-                setPassword(pass);
-                setStrength(calculateStrength(pass));
-            }} />
+            <PasswordHistory
+                history={history}
+                onSelect={(pass) => {
+                    setPassword(pass);
+                    setStrength(calculateStrength(pass));
+                }}
+                onClear={clearHistory}
+            />
         </div>
     );
 };

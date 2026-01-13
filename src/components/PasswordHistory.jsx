@@ -1,14 +1,24 @@
 import React from 'react';
 import { History } from 'lucide-react';
 
-const PasswordHistory = ({ history, onSelect }) => {
+const PasswordHistory = ({ history, onSelect, onClear }) => {
     if (history.length === 0) return null;
 
     return (
         <div className="mt-8 border-t border-white/10 pt-4">
-            <div className="flex items-center gap-2 mb-3 text-gray-400 text-sm font-semibold">
-                <History size={16} />
-                <span>HISTORY</span>
+            <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center gap-2 text-gray-400 text-sm font-semibold">
+                    <History size={16} />
+                    <span>HISTORY</span>
+                </div>
+                {onClear && (
+                    <button
+                        onClick={onClear}
+                        className="text-xs text-gray-500 hover:text-red-400 transition-colors"
+                    >
+                        CLEAR
+                    </button>
+                )}
             </div>
             <div className="flex flex-col gap-2">
                 {history.map((pass, index) => (
