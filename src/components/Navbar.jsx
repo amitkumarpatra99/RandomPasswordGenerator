@@ -3,7 +3,7 @@ import { Github, Code2, Lock } from 'lucide-react';
 
 const Navbar = () => {
   return (
-    <nav className="sticky top-0 w-full px-6 py-4 flex items-center justify-between z-50 backdrop-blur-xl bg-black/10 border-b border-white/10">
+    <nav className="sticky top-0 w-full px-3 sm:px-6 py-3 sm:py-4 flex items-center justify-between z-50 backdrop-blur-xl bg-black/10 border-b border-white/10">
       
       {/* Logo Section */}
       <div className="flex items-center gap-3">

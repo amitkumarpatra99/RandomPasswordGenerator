@@ -104,7 +104,7 @@ const PasswordGenerator = () => {
     };
 
     return (
-        <div className="glass p-5 sm:p-8 rounded-3xl w-full max-w-md mx-auto shadow-2xl backdrop-blur-xl border border-white/10 relative z-10 transition-all">
+        <div className="glass p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl w-full mx-auto shadow-2xl backdrop-blur-xl border border-white/10 relative z-10 transition-all">
 
             {/* Mode Tabs */}
             <div className="flex gap-2 mb-6 p-1 rounded-xl bg-white/5 border border-white/10">
@@ -139,7 +139,7 @@ const PasswordGenerator = () => {
                 {mode === 'PIN' ? (
                     /* PIN length selector */
                     <div>
-                        <label className="text-gray-300 font-medium text-sm sm:text-base block mb-3">PIN Length</label>
+                        <label className="text-gray-300 font-medium text-sm sm:text-base md:text-lg block mb-3">PIN Length</label>
                         <div className="flex gap-3">
                             {PIN_LENGTHS.map(len => (
                                 <button
@@ -162,8 +162,8 @@ const PasswordGenerator = () => {
                         {/* Length Slider */}
                         <div>
                             <div className="flex justify-between items-center mb-2">
-                                <label className="text-gray-300 font-medium text-sm sm:text-base">Character Length</label>
-                                <span className="text-2xl font-bold text-moto-primary tabular-nums">{length}</span>
+                                <label className="text-gray-300 font-medium text-sm sm:text-base md:text-lg">Character Length</label>
+                                <span className="text-xl sm:text-2xl md:text-3xl font-bold text-moto-primary tabular-nums">{length}</span>
                             </div>
                             <input
                                 type="range"
@@ -179,7 +179,7 @@ const PasswordGenerator = () => {
                         </div>
 
                         {/* Checkboxes */}
-                        <div className="grid grid-cols-2 gap-3">
+                        <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 gap-2 sm:gap-3">
                             {[
                                 { id: 'upper',  label: 'Uppercase', sub: 'A-Z' },
                                 { id: 'lower',  label: 'Lowercase', sub: 'a-z' },

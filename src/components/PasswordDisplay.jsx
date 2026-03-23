@@ -25,7 +25,7 @@ const PasswordDisplay = ({ password, onGenerate }) => {
     return (
         <div className={`glass-input rounded-xl p-4 mb-6 flex items-center justify-between group relative overflow-hidden transition-all duration-300 ${flash ? 'ring-1 ring-moto-primary/50' : ''}`}>
             <div className="flex-1 overflow-x-auto scrollbar-hide mr-3 min-w-0">
-                <p className={`text-base sm:text-xl font-mono tracking-wider break-all transition-opacity duration-200 ${password ? 'text-white' : 'text-gray-500'} ${flash ? 'opacity-70' : 'opacity-100'}`}>
+                <p className={`text-sm sm:text-base md:text-lg lg:text-xl font-mono tracking-wider break-all transition-opacity duration-200 ${password ? 'text-white' : 'text-gray-500'} ${flash ? 'opacity-70' : 'opacity-100'}`}>
                     {password || 'Click Generate'}
                 </p>
                 {password && (

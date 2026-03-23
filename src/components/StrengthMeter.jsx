@@ -17,18 +17,18 @@ const StrengthMeter = ({ score, password }) => {
 
     return (
         <div className="space-y-2">
-            <div className="flex items-center justify-between text-sm font-semibold tracking-wider">
+            <div className="flex items-center justify-between flex-wrap gap-1 text-sm font-semibold tracking-wider">
                 <div className="flex items-center gap-1.5 text-gray-400">
                     <Icon size={14} className={level.color} />
-                    <span>STRENGTH</span>
+                    <span className="text-xs sm:text-sm">STRENGTH</span>
                 </div>
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2 sm:gap-3">
                     {crackTime && (
-                        <span className="text-xs font-normal text-gray-500">
+                        <span className="text-xs font-normal text-gray-500 hidden xs:inline">
                             ~{crackTime} to crack
                         </span>
                     )}
-                    <span className={`${level.color} transition-colors duration-500`}>
+                    <span className={`text-xs sm:text-sm ${level.color} transition-colors duration-500`}>
                         {score > 0 ? level.label.toUpperCase() : '...'}
                     </span>
                 </div>
