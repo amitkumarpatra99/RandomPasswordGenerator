@@ -16,9 +16,8 @@ const Navbar = () => {
         </h1>
       </div>
 
-      {/* Actions Section */}
       <div className="flex items-center gap-3">
-        {/* GitHub Button */}
+    
         <a
           href="https://github.com/amitkumarpatra99"
           target="_blank"
@@ -31,7 +30,7 @@ const Navbar = () => {
           </span>
         </a>
 
-        {/* Developer Button */}
+        
         <a
           href="https://mrpatra.vercel.app/"
           className="group flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40 transition-all duration-300 active:scale-95"
